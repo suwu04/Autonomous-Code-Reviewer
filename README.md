@@ -83,5 +83,4 @@ While the AI agent is busy analyzing your pull request, the system displays a cl
 <img width="1906" height="920" alt="Screenshot 2025-11-17 212151" src="https://github.com/user-attachments/assets/4f5790c1-a205-468e-8828-39dbc7e9f3a9" />
 
 Once the AI has completed its analysis, the detailed findings are presented in an easy-to-understand format. Issues are ranked by severity, color-coded for quick identification, and each finding includes a clear explanation of the problem and a suggested fix.
-<img width="1906" height="920" alt="Screenshot 2025-11-17 212151" src="https://github.com/user-attachments/assets/4f5790c1-a205-468e-8828-39dbc7e9f3a9" />
 
