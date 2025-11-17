@@ -55,6 +55,7 @@ Open your terminal (like PowerShell) and clone the project:
 ```bash
 git clone [https://github.com/suwu04/Autonomous-Code-Reviewer.git](https://github.com/suwu04/Autonomous-Code-Reviewer.git)
 cd Autonomous-Code-Reviewer
+```
 
 ## 4. Build and Run the Application
 
@@ -62,7 +63,7 @@ This single command builds the Docker images and starts all three services (web,
 
 ```bash
 docker-compose up --build
-
+```
 ## 5.Use the App!
 Your AI Code Reviewer is now running!
 Open your web browser and go to: http://localhost:8000
