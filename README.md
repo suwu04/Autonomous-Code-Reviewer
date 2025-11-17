@@ -55,3 +55,32 @@ Open your terminal (like PowerShell) and clone the project:
 ```bash
 git clone [https://github.com/suwu04/Autonomous-Code-Reviewer.git](https://github.com/suwu04/Autonomous-Code-Reviewer.git)
 cd Autonomous-Code-Reviewer
+
+## 4. Build and Run the Application
+
+This single command builds the Docker images and starts all three services (web, worker, and redis) at the same time.
+
+```bash
+docker-compose up --build
+
+## 5.Use the App!
+Your AI Code Reviewer is now running!
+Open your web browser and go to: http://localhost:8000
+You can now use the web interface to submit a PR for analysis and see the results appear on the page.
+
+## 6. (Optional) View the API Docs
+FastAPI automatically generates an interactive API (Swagger) documentation page. You can view it here: http://localhost:8000/docs
+
+###In Action
+##Review in Progress
+<img width="943" height="595" alt="image" src="https://github.com/user-attachments/assets/794afb22-53df-49e1-866b-2e61428811be" />
+
+While the AI agent is busy analyzing your pull request, the system displays a clear indication that the task is underway. This ensures you're always aware of the review's status.
+
+
+##Review Results
+<img width="1906" height="920" alt="Screenshot 2025-11-17 212151" src="https://github.com/user-attachments/assets/4f5790c1-a205-468e-8828-39dbc7e9f3a9" />
+
+Once the AI has completed its analysis, the detailed findings are presented in an easy-to-understand format. Issues are ranked by severity, color-coded for quick identification, and each finding includes a clear explanation of the problem and a suggested fix.
+<img width="1906" height="920" alt="Screenshot 2025-11-17 212151" src="https://github.com/user-attachments/assets/4f5790c1-a205-468e-8828-39dbc7e9f3a9" />
+
