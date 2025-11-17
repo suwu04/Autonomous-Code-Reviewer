@@ -1,0 +1,52 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  # 1. Redis Service (Broker & Backend)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # 2. FastAPI Web Service (The API)
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - ./app:/app/app
+      - ./static:/app/static
+    ports:
+      - "8000:8000"
+    environment:
+      REDIS_URL: "redis://redis:6379/0"
+      # --- ADDED HF TOKEN ---
+      HUGGINGFACE_API_TOKEN: ${HUGGINGFACE_API_TOKEN}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    depends_on:
+      - redis
+
+  # 3. Celery Worker Service (The AI Task Runner)
+  worker:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A app.worker.celery_app worker --loglevel=info
+    volumes:
+      - ./app:/app/app
+    environment:
+      REDIS_URL: "redis://redis:6379/0"
+      # --- ADDED HF TOKEN ---
+      HUGGINGFACE_API_TOKEN: ${HUGGINGFACE_API_TOKEN}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    depends_on:
+      - redis
+      # --- REMOVED OLLAMA DEPENDENCY ---
+
+# Define the named volumes
+volumes:
+  redis_data:
+  # --- REMOVED OLLAMA_DATA ---

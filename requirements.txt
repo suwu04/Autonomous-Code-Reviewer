@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+celery[redis]
+redis
+pydantic_core
+pydantic
+crewai
+#langchain-community
+#langchain-huggingface  
+requests
+python-dotenv
+pytest
+litellm[extra_dependencies] # <-- MODIFIED
+jinja2                   # <-- ADDED
+gunicorn
